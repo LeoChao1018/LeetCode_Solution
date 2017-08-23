@@ -19,8 +19,8 @@ import java.util.List;
 public class TwoSum {
 	
 	public static void main(String[] args) {
-		Integer[] numbers = {7, 12, 2, 11, 15};
-		int target = 9;
+		Integer[] numbers = {4, 12, 4, 11, 15};
+		int target = 8;
 		twoSum(numbers, target);
 	}
 
@@ -34,20 +34,24 @@ public class TwoSum {
 			if(numberList.contains(temp)) {
 				int position = numberList.indexOf(temp) + 1;
 				if(sentinelPosition < position) {
-					if(sentinel < temp) {
+					if(sentinel <= temp) {
 						System.out.println("index1 is "+sentinelPosition+", index2 is "+position);
 					}
 					else {
 						System.out.println("index1 is "+position+", index2 is "+sentinelPosition);
 					}
 				}
-				else {
-					if(sentinel < temp) {
+				else if(sentinelPosition > position){
+					if(sentinel <= temp) {
 						System.out.println("index1 is "+position+", index2 is "+sentinelPosition);
 					}
 					else {
 						System.out.println("index1 is "+sentinelPosition+", index2 is "+position);
 					}
+				}
+				else {
+					System.out.println("repeated element");
+					continue;
 				}
 				
 				break;
